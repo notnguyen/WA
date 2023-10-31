@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evidence Milenek/Milenců</title>
+
+  <style>
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  -webkit-transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s;
+}
+
+.dark-mode {
+  background-color: rgb(35, 35, 35);
+  color: rgb(230, 230, 230);
+}
+  </style>
+</head>
+<body>
+
+<h1>Evidence Milenek/Milenců</h1>
+
+
+
+
+<label>Dark Mode</label>
+<label class="switch">
+  <input type="checkbox" onchange="myFunction()">
+  <span class="slider round"></span>
+</label>
+<br><br>
+
+
+<form action="http://jecna.lmsoft.cz/form.php">
+  <label for="jmeno">Jméno:</label>
+  <input type="text" id="jmeno" name="jmeno" required><br><br>
+
+  <label for="prijmeni">Příjmení:</label>
+  <input type="text" id="prijmeni" name="prijmeni" required><br><br>
+
+  <label for="foto">Fotka:</label>
+  <input type="file" id="foto" name="foto" accept="image/*"><br><br>
+
+  <label for="datum_narozeni">Datum narození:</label>
+  <input type="date" id="datum_narozeni" name="datum_narozeni" required><br><br>
+
+  <label for="telefon">Telefon:</label>
+  <input type="tel" id="telefon" name="telefon" required><br><br>
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" required><br><br>
+
+  <label for="cas_setkani">Čas setkání:</label>
+  <input type="time" id="cas_setkani" name="cas_setkani" required><br><br>
+
+  <label for="zajmy">Zájmy:</label><br>
+  <textarea name="zajmy"></textarea><br><br>
+
+  <label for="jidla">Oblíbená jídla:</label><br>
+  <textarea name="jidla"></textarea><br><br>
+
+  <label for="hudba">Oblíbená hudba:</label><br>
+  <textarea name="hudba"></textarea><br><br>
+
+  <label for="kniha">Oblíbená kniha:</label><br>
+  <textarea name="kniha"></textarea><br><br>
+
+  <label for="film">Oblíbený film:</label><br>
+  <textarea name="film"></textarea><br><br>
+  
+  <label for="ovoce">Oblíbené ovoce:</label>
+  <input type="text" id="ovoce" list="ovocelist">
+  <datalist id="ovocelist">
+  <option value="Jablko">
+  <option value="Hruška">
+  <option value="Banán">
+  <option value="Kiwi">
+  </datalist><br><br>
+
+<label for="favorite_color">Oblíbená barva:</label>
+<input type="color" id="favorite_color"><br><br>
+
+
+<label for="pocet_deti">Počet dětí:</label>
+<input type="number" id="pocet_deti" name="pocet_deti" min="0" max="10" required><br><br>
+
+
+  <input type="submit" value="Odeslat">
+
+
+
+</form> 
+
+
+
+
+</body>
+
+<script>
+
+  
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+  </script>
+</html>

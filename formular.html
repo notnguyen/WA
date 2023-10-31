@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anketní formulář</title>
+</head>
+<body>
+
+<h1>Anketní formulář</h1>
+
+<form enctype="Multipart/form-data" method="post" action="http://jecna.lmsoft.cz/form.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" value=""><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname" value=""><br><br><br>
+
+
+  <label for="pohlavi">Jaké je vaše pohlaví?</label><br>
+  <input type="radio" id="muz" name="pohlavi" value="muz">
+  <label for="muz">Muž</label><br>
+  <input type="radio" id="zena" name="pohlavi" value="zena">
+  <label for="zena">Žena</label><br>
+  <input type="radio" id="jine" name="pohlavi" value="jine">
+  <label for="jine">Nechci uvádět</label><br><br><br>
+
+
+  <label>Jaký dopravní prostředek vlastníte?</label><br>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1">Auto</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2">Kolo</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3">Letadlo</label><br><br><br>
+
+<label for="favourite">Jaký je tvoje nejoblíbenější jídlo?</label><br>
+<textarea name="favourite" rows=3 cols=30></textarea><br><br>
+<input type=reset value="Smazat"><br><br><br>
+
+<label>Vyber složku:</label>
+<input type="file" id="myFile" name="filename">
+<br><br><br>
+
+<input type=submit value="Odeslat">
+
+
+
+</form> 
+
+
+</body>
+</html>
