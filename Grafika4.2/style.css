@@ -1,0 +1,29 @@
+
+
+
+.navbar-nav .nav-link {
+  color: black !important;
+}
+
+.navbar-brand {
+  font-size: 25px;
+}
+
+.navbar-container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
