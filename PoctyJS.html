@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Vypocet() {
+        let delka = parseFloat(document.getElementById("Delka").value);
+        let spotreba = parseFloat(document.getElementById("Spotreba").value);
+        let cena = parseFloat(document.getElementById("Cena").value);
+        let pocetOsob = parseInt(document.getElementById("PocetOsob").value);
+        let spotrebaCelkem = delka * spotreba;
+        let cenaTrasy = spotrebaCelkem * cena;
+        let cenaOsoby = cenaTrasy / pocetOsob;
+        document.getElementById("VysledekCena").innerHTML =
+          "Cena trasy: " + cenaTrasy + " Kč";
+        document.getElementById("VysledekSpotreba").innerHTML =
+          "Spotřeba PHM: " + spotrebaCelkem + " l";
+        document.getElementById("VysledekOsoby").innerHTML =
+          "Každá osoba zaplatí: " + cenaOsoby + " Kč";
+      }
+    </script>
+  </head>
+  <body>
+    <label for="Delka">Délka trasy: </label>
+    <input type="number" id="Delka" />
+    <br />
+    <label for="Spotreba">Spotřeba: </label>
+    <input type="number" id="Spotreba" />
+    <br />
+    <label for="Cena">Cena PHM: </label>
+    <input type="number" id="Cena" />
+    <br />
+    <label for="PocetOsob">Počet osob: </label>
+    <input type="number" id="PocetOsob" />
+    <br />
+    <button onclick="Vypocet()">Spočítat</button>
+    <p id="VysledekCena"></p>
+    <p id="VysledekSpotreba"></p>
+    <p id="VysledekOsoby"></p>
+  </body>
+</html>
