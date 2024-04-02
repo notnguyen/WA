@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaktivní TO-DO list</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+.todo-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.completed {
+    opacity: 0.5;
+}
+
+</style>
+<body>
+<div class="todo-container">
+    <h1>TO-DO List</h1>
+    <input type="text" id="task" placeholder="Název úkolu">
+    <input type="text" id="description" placeholder="Popis úkolu">
+    <button onclick="addTask()">Přidat položku</button>
+    <ul id="taskList">
+    </ul>
+</div>
+<script>
+    function addTask() {
+    var taskInput = document.getElementById('task');
+    var descriptionInput = document.getElementById('description');
+    var taskList = document.getElementById('taskList');
+
+    if (taskInput.value === '') {
+        alert("Prosím, zadejte název úkolu!");
+        return;
+    }
+
+    var taskName = taskInput.value;
+    var description = descriptionInput.value;
+
+    var li = document.createElement('li');
+    li.innerHTML = '<input type="checkbox" onchange="toggleCompletion(this)">' + '<strong>' + taskName + '</strong>' + ' - ' + description +
+        '<button onclick="deleteTask(this)">Smazat</button>';
+    taskList.appendChild(li);
+
+    taskInput.value = '';
+    descriptionInput.value = '';
+}
+
+function deleteTask(btn) {
+    var li = btn.parentNode;
+    var ul = li.parentNode;
+    ul.removeChild(li);
+}
+
+function toggleCompletion(checkbox) {
+    var li = checkbox.parentNode;
+    if (checkbox.checked) {
+        li.classList.add('completed');
+    } else {
+        li.classList.remove('completed');
+    }
+}
+
+</script>
+</body>
+</html>
