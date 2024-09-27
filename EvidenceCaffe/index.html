@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evidenční systém kávy</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Evidenční systém kávy</h1>
 
     <form id="coffeeForm">
-        <label for="users">Uživatel:</label>
-        <select id="users" name="users">
+      <label for="users">Uživatel:</label>
+      <select id="users" name="users"></select>
 
-        </select>
+      <label for="types">Typ kávy:</label>
+      <div id="typesSliders"></div>
 
-        <label for="types">Typ kávy:</label>
-        <div id="typesSliders">
-
-        </div>
-
-        <button type="submit">Uložit kávu</button>
+      <button type="submit">Uložit kávu</button>
     </form>
 
-    <button id="listButton">Zobrazit statistiky</button>
+    <label for="month">Vyberte měsíc:</label>
+    <select id="month" name="month">
+      <option value="0">Všechny</option>
+      <option value="1">Leden</option>
+      <option value="2">Únor</option>
+      <option value="3">Březen</option>
+      <option value="4">Duben</option>
+      <option value="5">Květen</option>
+      <option value="6">Červen</option>
+      <option value="7">Červenec</option>
+      <option value="8">Srpen</option>
+      <option value="9">Září</option>
+      <option value="10">Říjen</option>
+      <option value="11">Listopad</option>
+      <option value="12">Prosinec</option>
+    </select>
+
+    <button id="mounthButton">Zobrazit statistiky</button>
 
     <div id="summary"></div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
