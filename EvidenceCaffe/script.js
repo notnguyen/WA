@@ -88,9 +88,11 @@ $(document).ready(function () {
     });
 
 
-    $('#listButton').on('click', function () {
+    $('#mounthButton').on('click', function () {
+        let selectedMonth = $('#month').val();
+
         $.ajax({
-            url: "http://ajax1.lmsoft.cz/procedure.php?cmd=getSummaryOfDrinks",
+            url: `http://ajax1.lmsoft.cz/procedure.php?cmd=getSummaryOfDrinks&month=${selectedMonth}`,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Basic " + btoa("coffee:kafe"));
             },
