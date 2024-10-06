@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     $.ajax({
         url: "http://ajax1.lmsoft.cz/procedure.php?cmd=getPeopleList",
         beforeSend: function (xhr) {
@@ -65,7 +66,6 @@ $(document).ready(function () {
             alert('Vyberte uživatele a zadejte počet vypitých káv.');
             return;
         }
-
 
         $.ajax({
             url: "http://ajax1.lmsoft.cz/procedure.php?cmd=saveDrinks",
