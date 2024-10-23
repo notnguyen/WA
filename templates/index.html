@@ -1,0 +1,77 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Káva přehled</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Káva Přehled</h1>
+
+    <!-- Záložky -->
+    <div>
+        <button onclick="showTab('make_coffee')">Uvařit kávu</button>
+        <button onclick="showTab('overview')">Přehled</button>
+    </div>
+
+    <!-- První záložka - Uvaření kávy -->
+    <div id="make_coffee" class="tab">
+        <h2>Uvařit kávu</h2>
+        <form id="coffee_form">
+            <input type="text" id="username" placeholder="Jméno" required><br>
+            <input type="text" id="coffee_type" placeholder="Typ kávy" required><br>
+            <input type="number" id="amount" placeholder="Množství (ml)" required><br>
+            <button type="submit">Odeslat</button>
+        </form>
+    </div>
+
+    <!-- Druhá záložka - Přehled -->
+    <div id="overview" class="tab" style="display:none;">
+        <h2>Přehled kávy</h2>
+        <ul id="coffee_list"></ul>
+    </div>
+
+    <script>
+        const socket = io();
+
+        // Zobrazení různých záložek
+        function showTab(tabName) {
+            document.getElementById('make_coffee').style.display = tabName === 'make_coffee' ? 'block' : 'none';
+            document.getElementById('overview').style.display = tabName === 'overview' ? 'block' : 'none';
+        }
+
+        // Odesílání uvařené kávy na server
+        document.getElementById('coffee_form').onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const coffeeType = document.getElementById('coffee_type').value;
+            const amount = document.getElementById('amount').value;
+
+            fetch('/add_coffee', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, coffee_type: coffeeType, amount })
+            });
+        };
+
+        // Aktualizace přehledu kávy přes WebSocket
+        socket.on('update_coffee', function(coffeeLogs) {
+            const coffeeList = document.getElementById('coffee_list');
+            coffeeList.innerHTML = '';  // Vyčištění seznamu
+            coffeeLogs.forEach(log => {
+                const li = document.createElement('li');
+                li.textContent = `${log.username} vypil ${log.amount}ml ${log.coffee_type}`;
+                coffeeList.appendChild(li);
+            });
+        });
+
+        // Notifikace pro úkoly
+        socket.on('update_tasks', function(tasks) {
+            console.log("Aktualizované úkoly: ", tasks);
+            // Zde by se daly zobrazit push notifikace pro uživatele
+        });
+    </script>
+</body>
+</html>
